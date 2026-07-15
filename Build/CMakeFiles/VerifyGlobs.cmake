@@ -15,6 +15,7 @@ file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/santosh/Projects/HRende
 set(OLD_GLOB
   "/home/santosh/Projects/HRender/Src/Components/Transform.cpp"
   "/home/santosh/Projects/HRender/Src/Core/Debug.cpp"
+  "/home/santosh/Projects/HRender/Src/Core/RenderWindow.cpp"
   "/home/santosh/Projects/HRender/Src/Main.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
