@@ -16,6 +16,7 @@
         gcc
         gdb
         gnumake
+        ninja
         
         cmake
         pkg-config

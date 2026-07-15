@@ -1,5 +1,5 @@
 # HRenderer
-So, this is a project that I'm making to learn OpenGL and rendering. If you want to set this up, run `make cmake_setup`.
+So, this is a project that I'm making to learn OpenGL and rendering. If you want to set this up, run `make cmake_setup_ninja`(this is the preferred way to do it, you can do `make cmake_setup` if you prefer Make).
 
 For debugging(building and then running the project), run `make` or `make debug`. This will automatically build the project with CMake and run it in the `./Build` directory.
 
