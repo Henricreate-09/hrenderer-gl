@@ -10,3 +10,5 @@ cmake_setup:
 cmake_setup_ninja:
 	cmake -S . -B ./Build -G Ninja
 	
+cmake_clean:
+	rm -rf Build
