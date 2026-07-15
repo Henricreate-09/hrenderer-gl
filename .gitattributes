@@ -1,2 +1,3 @@
 Include/glad/** linguist-vendored
 Include/KHR/** linguist-vendored
+Src/glad.c linguist-vendored
