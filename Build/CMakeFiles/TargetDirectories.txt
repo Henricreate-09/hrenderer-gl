@@ -1,3 +1,0 @@
-/home/santosh/Projects/HRender/Build/CMakeFiles/Game.dir
-/home/santosh/Projects/HRender/Build/CMakeFiles/edit_cache.dir
-/home/santosh/Projects/HRender/Build/CMakeFiles/rebuild_cache.dir
