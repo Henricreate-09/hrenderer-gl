@@ -1,7 +1,18 @@
 # ninja log v7
-1	15	1784139173247455568	/home/santosh/Projects/HRender/Build/CMakeFiles/cmake.verify_globs	b12d039a3c8b265e
+1	13	1784156035943342787	/home/santosh/Projects/HRender/Build/CMakeFiles/cmake.verify_globs	b12d039a3c8b265e
 16	43	1784139173261842850	CMakeFiles/Game.dir/Src/Core/Debug.cpp.o	35b5ec7e2db157e9
 16	44	1784139173260643310	CMakeFiles/Game.dir/Src/Components/Transform.cpp.o	694798a3f51d5a33
 16	496	1784139173262139702	CMakeFiles/Game.dir/Src/Core/RenderWindow.cpp.o	6e797145e104cd2c
 16	565	1784139173262393545	CMakeFiles/Game.dir/Src/Main.cpp.o	f4039f0b542b6170
 565	756	1784139173809635056	Game	9afce008f98b2f0c
+13	61	1784156035994389728	build.ninja	92d915bf66a1493e
+13	61	1784156035994389728	/home/santosh/Projects/HRender/Build/cmake_install.cmake	92d915bf66a1493e
+1	13	1784156036004342692	/home/santosh/Projects/HRender/Build/CMakeFiles/cmake.verify_globs	b12d039a3c8b265e
+15	51	1784156036018342671	CMakeFiles/Game.dir/Src/Core/Debug.cpp.o	5d4f3b3da355ef6
+14	52	1784156036017342672	CMakeFiles/Game.dir/Src/Components/Transform.cpp.o	38895eb4fbb01646
+15	483	1784156036019095853	CMakeFiles/Game.dir/Src/Core/RenderWindow.cpp.o	56f1ea9b582e9653
+15	540	1784156036019321987	CMakeFiles/Game.dir/Src/Main.cpp.o	b0b18595a7e4d292
+540	700	1784156036543341850	Game	9afce008f98b2f0c
+2	23	1784156057628140751	/home/santosh/Projects/HRender/Build/CMakeFiles/cmake.verify_globs	b12d039a3c8b265e
+24	438	1784156057650140403	CMakeFiles/Game.dir/Src/Main.cpp.o	b0b18595a7e4d292
+438	609	1784156058064133868	Game	9afce008f98b2f0c

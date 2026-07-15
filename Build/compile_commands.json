@@ -1,25 +1,25 @@
 [
 {
   "directory": "/home/santosh/Projects/HRender/Build",
-  "command": "/nix/store/vdaz6sk455r8sbpi7wzaf9vlz5i9yyvx-gcc-wrapper-15.2.0/bin/g++ -o CMakeFiles/Game.dir/Src/Components/Transform.cpp.o -c /home/santosh/Projects/HRender/Src/Components/Transform.cpp",
+  "command": "/nix/store/vdaz6sk455r8sbpi7wzaf9vlz5i9yyvx-gcc-wrapper-15.2.0/bin/g++ -I/home/santosh/Projects/HRender/./Include -o CMakeFiles/Game.dir/Src/Components/Transform.cpp.o -c /home/santosh/Projects/HRender/Src/Components/Transform.cpp",
   "file": "/home/santosh/Projects/HRender/Src/Components/Transform.cpp",
   "output": "/home/santosh/Projects/HRender/Build/CMakeFiles/Game.dir/Src/Components/Transform.cpp.o"
 },
 {
   "directory": "/home/santosh/Projects/HRender/Build",
-  "command": "/nix/store/vdaz6sk455r8sbpi7wzaf9vlz5i9yyvx-gcc-wrapper-15.2.0/bin/g++ -o CMakeFiles/Game.dir/Src/Core/Debug.cpp.o -c /home/santosh/Projects/HRender/Src/Core/Debug.cpp",
+  "command": "/nix/store/vdaz6sk455r8sbpi7wzaf9vlz5i9yyvx-gcc-wrapper-15.2.0/bin/g++ -I/home/santosh/Projects/HRender/./Include -o CMakeFiles/Game.dir/Src/Core/Debug.cpp.o -c /home/santosh/Projects/HRender/Src/Core/Debug.cpp",
   "file": "/home/santosh/Projects/HRender/Src/Core/Debug.cpp",
   "output": "/home/santosh/Projects/HRender/Build/CMakeFiles/Game.dir/Src/Core/Debug.cpp.o"
 },
 {
   "directory": "/home/santosh/Projects/HRender/Build",
-  "command": "/nix/store/vdaz6sk455r8sbpi7wzaf9vlz5i9yyvx-gcc-wrapper-15.2.0/bin/g++ -o CMakeFiles/Game.dir/Src/Core/RenderWindow.cpp.o -c /home/santosh/Projects/HRender/Src/Core/RenderWindow.cpp",
+  "command": "/nix/store/vdaz6sk455r8sbpi7wzaf9vlz5i9yyvx-gcc-wrapper-15.2.0/bin/g++ -I/home/santosh/Projects/HRender/./Include -o CMakeFiles/Game.dir/Src/Core/RenderWindow.cpp.o -c /home/santosh/Projects/HRender/Src/Core/RenderWindow.cpp",
   "file": "/home/santosh/Projects/HRender/Src/Core/RenderWindow.cpp",
   "output": "/home/santosh/Projects/HRender/Build/CMakeFiles/Game.dir/Src/Core/RenderWindow.cpp.o"
 },
 {
   "directory": "/home/santosh/Projects/HRender/Build",
-  "command": "/nix/store/vdaz6sk455r8sbpi7wzaf9vlz5i9yyvx-gcc-wrapper-15.2.0/bin/g++ -o CMakeFiles/Game.dir/Src/Main.cpp.o -c /home/santosh/Projects/HRender/Src/Main.cpp",
+  "command": "/nix/store/vdaz6sk455r8sbpi7wzaf9vlz5i9yyvx-gcc-wrapper-15.2.0/bin/g++ -I/home/santosh/Projects/HRender/./Include -o CMakeFiles/Game.dir/Src/Main.cpp.o -c /home/santosh/Projects/HRender/Src/Main.cpp",
   "file": "/home/santosh/Projects/HRender/Src/Main.cpp",
   "output": "/home/santosh/Projects/HRender/Build/CMakeFiles/Game.dir/Src/Main.cpp.o"
 }
