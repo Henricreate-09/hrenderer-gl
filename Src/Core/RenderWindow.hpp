@@ -1,5 +1,6 @@
 #pragma once
 
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 
@@ -8,20 +9,26 @@ class RenderWindow {
     private:
     GLFWwindow *m_window;
 
-    size_t m_width;
-    size_t m_height;
+    int m_width;
+    int m_height;
     std::string m_title;
+    bool m_isRunning;
+
+    bool m_isResizeable;
+    bool m_isFullscreen;
 
     public:
-    RenderWindow(size_t w, size_t h, std::string title) : 
-        m_width(w), m_height(h), m_title(title) {
-            // do things
-    }
-    ~RenderWindow() {
-        glfwDestroyWindow(this->m_window);
-    }
+    RenderWindow(const int &w, const int &h, const std::string &title);
+    ~RenderWindow();
 
-    void UpdateWindow() {
+    void WindowLoop();
+    void Quit();
+    bool IsRunning();
+    
 
-    }
+    // Window property setters
+    void SetTitle(const std::string &newTitle);
+    void SetSize(const int &width, const int &height);
+    void SetResizeable(const bool &option);
+    void SetFullscreen(const bool &option);
 };
