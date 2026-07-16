@@ -23,6 +23,7 @@ RenderWindow::RenderWindow(const int &w, const int &h, const std::string &title)
     this->m_width = w;
     this->m_height = h;
     this->m_title = title;
+    this->m_clearColor = Color(0,0,0);
 
     this->m_window = glfwCreateWindow(
         this->m_width,
@@ -59,8 +60,12 @@ RenderWindow::~RenderWindow() {
 void RenderWindow::WindowLoop() {
     glfwPollEvents();
 
-    // TODO: Make a function to set the window color(uses the Color.hpp class)
-    glClearColor(0.251f, 0.122f, 0.812f, 1.0f);
+    glClearColor(
+        Color::ValueToNormalized(this->m_clearColor.r),
+        Color::ValueToNormalized(this->m_clearColor.g),
+        Color::ValueToNormalized(this->m_clearColor.b),
+        Color::ValueToNormalized(this->m_clearColor.a)
+    );
     glClear(GL_COLOR_BUFFER_BIT);
     
     
@@ -84,4 +89,8 @@ bool RenderWindow::IsRunning() {
 
 void RenderWindow::SetTitle(const std::string &newTitle) {
     glfwSetWindowTitle(this->m_window, newTitle.c_str());
+}
+
+void RenderWindow::SetClearColor(const Color &color) {
+    this->m_clearColor = color;
 }

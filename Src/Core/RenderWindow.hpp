@@ -4,6 +4,8 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
+#include "Core.hpp"
+
 
 class RenderWindow {
     private:
@@ -16,6 +18,8 @@ class RenderWindow {
 
     bool m_isResizeable;
     bool m_isFullscreen;
+
+    Color m_clearColor;
 
     public:
     RenderWindow(const int &w, const int &h, const std::string &title);
@@ -31,4 +35,5 @@ class RenderWindow {
     void SetSize(const int &width, const int &height);
     void SetResizeable(const bool &option);
     void SetFullscreen(const bool &option);
+    void SetClearColor(const Color &color);
 };
