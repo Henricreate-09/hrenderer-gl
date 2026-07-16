@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 4.1)
 
 set(PROJ_NAME Game)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CXX_STANDARD 17)
 
 project(${PROJ_NAME})
 
