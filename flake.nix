@@ -22,6 +22,7 @@
         pkg-config
 
         glfw3
+        glm
       ];
     };
   };

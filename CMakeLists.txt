@@ -16,7 +16,12 @@ file(GLOB_RECURSE SOURCE_FILES
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
+find_package(glm CONFIG REQUIRED)
 
 add_executable(${PROJ_NAME} ${SOURCE_FILES})
 target_include_directories(${PROJ_NAME} PRIVATE ./Include)
-target_link_libraries(${PROJ_NAME} PRIVATE OpenGL::GL glfw)
+target_link_libraries(${PROJ_NAME} PRIVATE
+    OpenGL::GL
+    glfw 
+    glm::glm
+)
