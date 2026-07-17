@@ -1,0 +1,76 @@
+#include "Shader.hpp"
+
+Shader::Shader(const String &vertSource, const String &fragSource) {
+    this->m_pathVert = vertSource;
+    this->m_pathFrag = fragSource;
+
+    unsigned int vert, frag;
+    String vertTemp = File::ReadAsset(this->m_pathVert);
+    String fragTemp = File::ReadAsset(this->m_pathFrag);
+    
+    const char *vertShaderCode = vertTemp.c_str();
+    const char *fragShaderCode = fragSource.c_str();
+
+
+    size_t infologLength = 512;
+    int statusSuccess = 0;
+    char infolog[infologLength];
+
+
+    vert = glCreateShader(GL_VERTEX_SHADER);
+    frag = glCreateShader(GL_FRAGMENT_SHADER);
+
+    glShaderSource(vert, 1, &vertShaderCode, NULL);
+    glShaderSource(frag, 1, &fragShaderCode, NULL);
+
+    
+    // SHADER COMPILATION
+    glCompileShader(vert);
+    glGetShaderiv(vert, GL_COMPILE_STATUS, &statusSuccess);
+    if (!statusSuccess) {
+        glGetShaderInfoLog(vert, infologLength, NULL, infolog);
+        Debug::LogError("Vertex shader failed to compile:\n\t" + String(infolog));
+    }
+
+    glCompileShader(frag);
+    glGetShaderiv(frag, GL_COMPILE_STATUS, &statusSuccess);
+    if (!statusSuccess) {
+        glGetShaderInfoLog(frag, infologLength, NULL, infolog);
+        Debug::LogError("Fragment shader failed to compile:\n\t" + String(infolog));
+    }
+
+
+    this->m_shaderProgram = glCreateProgram();
+    glAttachShader(this->m_shaderProgram, vert);
+    glAttachShader(this->m_shaderProgram, frag);
+    glLinkProgram(this->m_shaderProgram);
+
+    glGetProgramiv(this->m_shaderProgram, GL_LINK_STATUS, &statusSuccess);
+    if (!statusSuccess) {
+        glGetProgramInfoLog(this->m_shaderProgram, infologLength, NULL, infolog);
+        Debug::LogError("Failed to link shaders, shader program will be unusable:\n\t" + String(infolog));
+    } 
+
+    glDeleteShader(vert);
+    glDeleteShader(frag);
+
+}
+
+void Shader::Use() {
+    glUseProgram(this->m_shaderProgram);
+}
+
+String Shader::GetShaderSource(ShaderType type) {
+    switch (type) {
+        case ShaderType::FRAG:
+            return this->m_pathFrag;
+        case ShaderType::VERTEX:
+            return this->m_pathVert;
+    }
+    return "[NO SOURCE]";
+}
+
+Shader::~Shader() {
+    glDeleteProgram(this->m_shaderProgram);
+}
+
