@@ -4,6 +4,7 @@
 #include <GLFW/glfw3.h>
 
 #include "Core/Core.hpp"
+#include "Renderer/Renderer.hpp"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ const char *fragShaderSource = "#version 330 core\n"
     "\n"
     "void main() {\n"
     "    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-    "}";
+    "}\0    ";
 
 
 int main(void) {
@@ -75,7 +76,7 @@ int main(void) {
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
 
-    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+    /*unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -92,6 +93,9 @@ int main(void) {
     
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
+    */
+    
+    Shader defShader("Shaders/HiShaderVert.glsl", "Shaders/HiShaderFrag.glsl");
     
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float)  * 3, (void*)0);
     glEnableVertexAttribArray(0);
@@ -105,10 +109,11 @@ int main(void) {
         if (glfwGetKey(window, GLFW_KEY_ESCAPE))
         glfwSetWindowShouldClose(window, true);
         
+        defShader.Use();
+
         glClearColor(0.4f, 0.2f, 0.6f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        glUseProgram(ShaderProgram);
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
         
@@ -119,6 +124,6 @@ int main(void) {
 
     glfwDestroyWindow(window);
     glfwTerminate();
-    
+
     return 0;
 }
