@@ -4,13 +4,13 @@ Shader::Shader(const String &vertSource, const String &fragSource) {
     this->m_pathVert = vertSource;
     this->m_pathFrag = fragSource;
 
+
     unsigned int vert, frag;
     String vertTemp = File::ReadAsset(this->m_pathVert);
     String fragTemp = File::ReadAsset(this->m_pathFrag);
-    
-    const char *vertShaderCode = vertTemp.c_str();
-    const char *fragShaderCode = fragSource.c_str();
 
+    const char *vertShaderCode = vertTemp.c_str();
+    const char *fragShaderCode = fragTemp.c_str();
 
     size_t infologLength = 512;
     int statusSuccess = 0;

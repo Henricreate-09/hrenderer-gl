@@ -2,6 +2,9 @@
 
 #include <glad/glad.h>
 #include "../Core/Core.hpp"
+#include <iostream>
+#include <cstdio>
+#include <string.h>
 
 enum ShaderType {
     VERTEX,
