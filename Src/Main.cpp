@@ -62,38 +62,32 @@ int main(void) {
 
 
     float vertices[] = {
-        0.f, 0.5f, 0.f,
-        0.5f, -0.5f, 0.f,
-        -0.5f, -0.5f, 0.f
+        -0.5f, 0.5f, 0.f,
+        0.5f, 0.5f, 0.f,
+        -0.5f, -0.5f, 0.f,
+        0.5f, -0.5f, 0.f
+    };
+    unsigned int indices[] = {
+        0, 1, 2,
+        1, 2, 3
     };
 
-    unsigned int VBO, VAO;
-    glGenBuffers(1, &VBO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    unsigned int VAO;
+    unsigned int tempEBO;
+    VBO modelVBO;
+    EBO modelEBO;
 
+    glGenBuffers(1, &tempEBO);
+    
+    modelVBO.Bind();
+    modelVBO.SetData(vertices, sizeof(vertices));
 
+    modelEBO.Bind();
+    modelEBO.SetData(indices, sizeof(indices));
+    
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
-
-    /*unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
-
-    glShaderSource(fragmentShader, 1, &fragShaderSource, NULL);
-    glCompileShader(fragmentShader);
-
-    unsigned int ShaderProgram = glCreateProgram();
-    glAttachShader(ShaderProgram, vertexShader);
-    glAttachShader(ShaderProgram, fragmentShader);
-    glLinkProgram(ShaderProgram);
-
     
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
-    */
     
     Shader defShader("Shaders/HiShaderVert.glsl", "Shaders/HiShaderFrag.glsl");
     
@@ -104,20 +98,21 @@ int main(void) {
     
     
     
-    
     while (!glfwWindowShouldClose(window))  {
+        glfwPollEvents();
         if (glfwGetKey(window, GLFW_KEY_ESCAPE))
         glfwSetWindowShouldClose(window, true);
         
-        defShader.Use();
-
-        glClearColor(0.4f, 0.2f, 0.6f, 1.0f);
+        
+        glClearColor(0.1f, 0.1f, 0.1f, 1);
         glClear(GL_COLOR_BUFFER_BIT);
         
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
         
-        glfwPollEvents();
+        defShader.Use();
+        modelEBO.Bind();
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+        
         glfwSwapBuffers(window);
     }
     
