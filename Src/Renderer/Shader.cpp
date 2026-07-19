@@ -1,8 +1,8 @@
 #include "Shader.hpp"
 
-Shader::Shader(const String &vertSource, const String &fragSource) {
-    this->m_pathVert = vertSource;
-    this->m_pathFrag = fragSource;
+Shader::Shader(const String &name) {
+    this->m_pathVert = name + ".vert";
+    this->m_pathFrag = name + ".frag";
 
 
     unsigned int vert, frag;
@@ -56,12 +56,23 @@ Shader::Shader(const String &vertSource, const String &fragSource) {
 
 }
 
+
 void Shader::Use() {
     glUseProgram(this->m_shaderProgram);
 }
 
+
 int Shader::GetUniformLocation(const String &uniform) {
-    return glGetUniformLocation(this->m_shaderProgram, uniform.c_str());
+    for (auto element : this->m_locationCache) {
+        if (element.first == uniform) {
+            return element.second;
+        }
+    }
+
+    
+    int location = glGetUniformLocation(this->m_shaderProgram, uniform.c_str());
+    this->m_locationCache[uniform] = location;
+    return location;
 }
 
 
