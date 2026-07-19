@@ -62,10 +62,10 @@ int main(void) {
 
 
     float vertices[] = {
-        -0.5f, 0.5f, 0.f,
-        0.5f, 0.5f, 0.f,
-        -0.5f, -0.5f, 0.f,
-        0.5f, -0.5f, 0.f
+        // POSITION             // COLORS
+        0.0f, 0.5f, 0.f,        1.0f, 0.0f, 0.0f,
+        -0.5f, -0.5f, 0.f,      0.0f, 1.0f, 0.0f,
+        0.5f, -0.5f, 0.f,       0.0f, 0.0f, 1.0f
     };
     unsigned int indices[] = {
         0, 1, 2,
@@ -87,7 +87,8 @@ int main(void) {
     modelEBO.SetData(indices, sizeof(indices));
     
 
-    modelVAO.SetData(0);
+    modelVAO.SetDataVec3(0, 6, 0);
+    modelVAO.SetDataVec3(1, 6, 3);
     
     Shader defShader("Shaders/HiShaderVert.glsl", "Shaders/HiShaderFrag.glsl");
     
@@ -99,12 +100,12 @@ int main(void) {
         
         glClearColor(0.1f, 0.1f, 0.1f, 1);
         glClear(GL_COLOR_BUFFER_BIT);
-        
+
         
         modelVAO.Bind();
         modelEBO.Bind();
         defShader.Use();
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
         
         glfwSwapBuffers(window);
     }
