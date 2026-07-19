@@ -60,6 +60,31 @@ void Shader::Use() {
     glUseProgram(this->m_shaderProgram);
 }
 
+int Shader::GetUniformLocation(const String &uniform) {
+    return glGetUniformLocation(this->m_shaderProgram, uniform.c_str());
+}
+
+
+
+void Shader::SetUniform(const String &uniform, const float &value) {
+    const int location = this->GetUniformLocation(uniform);
+    glUniform1f(location, value);
+}
+void Shader::SetUniform(const String &uniform, const Vec2 &value) {
+    const int location = this->GetUniformLocation(uniform);
+    glUniform2f(location, value.x, value.y);
+}
+void Shader::SetUniform(const String &uniform, const Vec3 &value) {
+    const int location = this->GetUniformLocation(uniform);
+    glUniform3f(location, value.x, value.y, value.z);
+}
+void Shader::SetUniform(const String &uniform, const Vec4 &value) {
+    const int location = this->GetUniformLocation(uniform);
+    glUniform4f(location, value.x, value.y, value.z, value.w);
+}
+
+
+
 String Shader::GetShaderSource(ShaderType type) {
     switch (type) {
         case ShaderType::FRAG:

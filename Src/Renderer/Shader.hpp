@@ -24,5 +24,12 @@ public:
 
     void Use();
 
+    int GetUniformLocation(const String &uniform);
+
+    void SetUniform(const String &uniform, const float &value);
+    void SetUniform(const String &uniform, const Vec2 &value);
+    void SetUniform(const String &uniform, const Vec3 &value);
+    void SetUniform(const String &uniform, const Vec4 &value);
+
     String GetShaderSource(ShaderType type);
 };
