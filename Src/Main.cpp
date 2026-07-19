@@ -72,31 +72,24 @@ int main(void) {
         1, 2, 3
     };
 
-    unsigned int VAO;
-    unsigned int tempEBO;
     VBO modelVBO;
     EBO modelEBO;
+    VAO modelVAO;
 
-    glGenBuffers(1, &tempEBO);
-    
+    unsigned int vao;
+    glGenVertexArrays(1, &vao);
+    modelVAO.Bind();
+
     modelVBO.Bind();
     modelVBO.SetData(vertices, sizeof(vertices));
-
+    
     modelEBO.Bind();
     modelEBO.SetData(indices, sizeof(indices));
     
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
-    
+
+    modelVAO.SetData(0);
     
     Shader defShader("Shaders/HiShaderVert.glsl", "Shaders/HiShaderFrag.glsl");
-    
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float)  * 3, (void*)0);
-    glEnableVertexAttribArray(0);
-    
-    
-    
-    
     
     while (!glfwWindowShouldClose(window))  {
         glfwPollEvents();
@@ -107,10 +100,10 @@ int main(void) {
         glClearColor(0.1f, 0.1f, 0.1f, 1);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        glBindVertexArray(VAO);
         
-        defShader.Use();
+        modelVAO.Bind();
         modelEBO.Bind();
+        defShader.Use();
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
         
         glfwSwapBuffers(window);
