@@ -5,12 +5,11 @@
 class VAO {
 private: 
     unsigned int m_ID;
-    unsigned int m_pointerIndex;
 
 public:
     VAO();
     ~VAO();
 
-    void SetData(unsigned int pointerIndex);
+    void SetDataVec3(const GLuint &pointerIndex, const GLuint &elementAmount, const GLuint &offset);
     void Bind();
 };
